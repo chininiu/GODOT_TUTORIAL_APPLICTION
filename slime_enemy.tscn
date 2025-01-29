@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cproqtfng6swq"]
+
+[ext_resource type="Script" path="res://slime_enemy.gd" id="1_4tepb"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_mkpy6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snlk4"]
+radius = 53.0
+height = 106.0
+
+[node name="mob_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+platform_floor_layers = 0
+script = ExtResource("1_4tepb")
+
+[node name="Slime" parent="." instance=ExtResource("1_mkpy6")]
+unique_name_in_owner = true
+position = Vector2(1, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("CapsuleShape2D_snlk4")
